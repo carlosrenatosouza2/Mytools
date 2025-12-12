@@ -1,0 +1,72 @@
+Representacao em inteiros:
+
+(kind=2) 2 bytes = 16 bits = 2e16 = 65.536  = -32.768 a +32.767
+(kind=4) 4 bytes = 32 bits = 2e32 = 4,29e9  = -2.147.483.648 a +2.147.483.647
+(kind=8) 8 bytes = 64 bits = 2e64 = 1,84e19 = -9.223.372.036.854.775.808 a +9.223.372.036.854.775.807
+
+Usar N=100.000.000 = 1e8
+
+100.000.000 < +2.147.483.647 
+
+integer(kind=4)
+integer(int32)
+
+2.147.483.647 
+  100.000.000
+
+2.147.483.647 
+1.000.000.000
+
+ 2.147.483.647 
+10.000.000.000
+
+integer(8)
+integer(int64)
+integer(selected_int_kind(11))
+
+
+9.223.372.036.854.775.807
+           10.000.000.000
+
+
+
+
+
+                  real(4)        real(8)
+                  real(real32)   real(real64)
+
+    1.000.000  =   4 Mb       =    8 Mb
+  100.000.000  = 400 Mb       =  800 Mb
+  250.000.000  =   1 Gb       =    2 Gb
+1.000.000.000  =   4 Gb       =    8 Gb
+
+
+
+
+
+
+
+Representao em ponto flutuante:
+
+4 bytes = 32 bits
+mantissa: 24 bits (1+23)   = 7 a 8 digitos (2e23 = 8.388.608)
+expoente:  8 bits          = 10e38 a 10e-38
+
+8 bytes = 64 bits
+mantissa: 53 bits (1+52)   = 15 a 16 digitos (2e52)
+expoente: 11 bits          = 1308 a 10e-308
+
+
+Antigamente: 
+real(4) ou real(kind=4) ! default alguns processadores/compiladores usam kind=1, kind=2
+real(8) ou real(kind=8)
+
+
+Solucao : selected_real_kind(p=precision)
+precision = numero de digitos que vc quer
+
+
+Moderno: 2008/
+real(real32) ! default
+real(real64)
+
